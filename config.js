@@ -7,7 +7,7 @@ const config = {
     password: env.DB_PASSWORD || 'admin123',
     database: env.DB_NAME || 'freedbtech_task',
   },
-  listPerPage: env.LIST_PER_PAGE || 10,
+  listPerPage: env.LIST_PER_PAGE || 25,
 };
 
 

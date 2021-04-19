@@ -5,9 +5,19 @@ const Products = require("../services/products");
 /* GET products. */
 router.get("/", async function (req, res, next) {
   try {
-    res.json(await Products.getProducts(req.query.page));
+    res.json(await Products.getProducts(req.query.categoryId,req.query.page));
   } catch (err) {
     console.error(`Error while getting products `, err.message);
+    next(err);
+  }
+});
+
+/* PUT products */
+router.put('/:id', async function(req, res, next) {
+  try {
+    res.json(await Products.update(req.params.id));
+  } catch (err) {
+    console.error(`Error while updating products`, err.message);
     next(err);
   }
 });
